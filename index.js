@@ -219,7 +219,7 @@ async function runAutomation() {
   console.log('***** Automation completed successfully *****');
 }
 
-app.get('/', async (req, res) => {
+app.get('/callback', async (req, res) => {
     const authorizationCode = req.query.code;
     console.log("Authorization Code:", authorizationCode);
 
@@ -255,6 +255,11 @@ app.get('/', async (req, res) => {
         console.error("Error exchanging token:", error.response.data);
         res.status(500).send("Failed to get access token");
     }
+});
+
+app.get('/', async (req, res) => {
+    const authUrl = process.env.HUBSPORT_CALLABACK_URL;
+    return res.redirect(authUrl);
 });
 
 // runAutomation();
