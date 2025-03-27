@@ -22,6 +22,7 @@ yarn
 yarn start
 
 # assumptions made
+You've placed .env file in project after cloning.
 you have created a private app in hubspot CRM and got access token (not available with developer account)
 and placed it in .env file as key (HUBSPORT_ACCESS_TOKEN).
 Or for public app you've created a test account and installed app.
@@ -32,6 +33,6 @@ and you'll get Access token that you'll have to place in env's against key: HUBS
 # example output
 
 # further to done:
-# docker application (move above commands to docker file)
-# use some queue e.g. bullMQ or some DB table to fetch contacts into queue then process.
-# delete from queue/table after processing
+docker application (move above commands to docker file)
+use some queue e.g. bullMQ or some DB table to fetch contacts into queue then process. Or implement a CRON job.
+delete from queue/table after processing.
